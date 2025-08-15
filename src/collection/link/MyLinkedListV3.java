@@ -23,13 +23,6 @@ public class MyLinkedListV3<E> {
         return x;
     }
 
-//    public Object set(int index, Object element) {
-////        Node x = getNode(index);
-////        Object oldValue = x;
-////        x.item = element;
-////        return oldValue;
-////    }
-
     public E set(int index, E element) {
         Node<E> x = getNode(index);
         E oldValue = x.item;
@@ -37,13 +30,13 @@ public class MyLinkedListV3<E> {
         return oldValue;
     }
 
-    public Object get(int index) {
+    public E get(int index) {
         Node<E> x = getNode(index);
         return x.item;
     }
 
-    // O(n)
-    public Node<E> getNode(int index){
+
+    private Node<E> getNode(int index){
         Node<E> x = first;
         for(int i = 0; i< index; i ++) {
             x = x.next;
@@ -65,19 +58,6 @@ public class MyLinkedListV3<E> {
         return size;
     }
 
-
-//    public void add (int index, Object e) {
-//        Node newNode = new Node(e);
-//        if(index == 0) {
-//            newNode.next = first;
-//            first = newNode;
-//        }else {
-//            Node prev = getNode(index-1);
-//            newNode.next = prev.next;
-//            prev.next = newNode;
-//        }
-//        size ++;
-//    }
     public void add(int index, E e) {
         Node<E> newNode = new Node<>(e);
         if (index == 0) {
@@ -90,23 +70,6 @@ public class MyLinkedListV3<E> {
         }
         size++;
     }
-
-//    public Object remove(int index) {
-//        Node removeNode = getNode(index);
-//        Object removeItem = removeNode.item;
-//
-//        if(index == 0) {
-//            first = removeNode.next;
-//        }else {
-//            Node prev = getNode(index -1);
-//            prev.next = removeNode.next;
-//        }
-//
-//        removeNode.item = null;
-//        removeNode.next = null;
-//        size--;
-//        return removeItem;
-//    }
 
     public E remove(int index) {
         Node<E> removeNode = getNode(index);
